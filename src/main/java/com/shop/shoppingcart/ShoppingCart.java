@@ -20,8 +20,9 @@ public class ShoppingCart {
 	private Customer customer;
 	private List<Product> customerCart;
 	
-	public ShoppingCart(Long id, List<Product> customerCart) {
+	public ShoppingCart(Long id,Customer customer, List<Product> customerCart) {
 		this.id = id;
+		this.customer = customer;
 		this.customerCart = customerCart;
 	}
 
