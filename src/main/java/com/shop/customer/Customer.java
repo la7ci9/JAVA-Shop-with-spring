@@ -18,7 +18,6 @@ public class Customer {
 	private String firstName;
 	private String lastName;
 	private String email;
-	private ShoppingCart shoppingCart;
 	
 	public Long getId() {
 		return id;
@@ -43,11 +42,5 @@ public class Customer {
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	public ShoppingCart getShoppingCart() {
-		return shoppingCart;
-	}
-	public void setShoppingCart(ShoppingCart shoppingCart) {
-		this.shoppingCart = shoppingCart;
 	}
 }
