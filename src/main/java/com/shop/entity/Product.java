@@ -34,6 +34,7 @@ public class Product {
 		this.group = group;
 		this.description = description;
 	}
+	
 	public String getBrand() {
 		return Brand;
 	}
