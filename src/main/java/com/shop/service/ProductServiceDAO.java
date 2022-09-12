@@ -10,6 +10,8 @@ public interface ProductServiceDAO {
 	
 	Product saveProduct(Product product);
 	
+	Product getProduct(Long id);
+	
 	Product modifyProduct(Product product);
 	
 	void deleteProduct(Long id);	
