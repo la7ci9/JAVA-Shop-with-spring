@@ -10,23 +10,21 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "shoppingcart")
-public class ShoppingCartItem {
+@Table(name = "cartitem")
+public class CartItem {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id; 
 	private Customer customer;
-	private Product customerCart;
+	private Product product;
 	private Integer quantity;
-	
-	
 
-	public ShoppingCartItem(Long id, 
-			Customer customer, Product customerCart, Integer quantity) {
+	public CartItem(Long id, 
+			Customer customer, Product product, Integer quantity) {
 		this.id = id;
 		this.customer = customer;
-		this.customerCart = customerCart;
+		this.product = product;
 		this.quantity = quantity;
 	}
 	public Long getId() {
@@ -45,11 +43,11 @@ public class ShoppingCartItem {
 	}
 	
 	public Product getCustomerCart() {
-		return customerCart;
+		return product;
 	}
 	
 	public void setCustomerCart(Product customerCart) {
-		this.customerCart = customerCart;
+		this.product = customerCart;
 	}
 	
 	public Integer getQuantity() {
