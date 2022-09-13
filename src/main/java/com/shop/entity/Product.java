@@ -13,13 +13,11 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	public String Brand;
+	private String Brand;
 	private String nameOfProduct;
 	private Double price;
 	private ProductGroup group;
 	private String description; //amount in pack or something
-	
-	
 	
 	public Product(Long id, 
 			String brand, 
@@ -28,7 +26,7 @@ public class Product {
 			ProductGroup group, 
 			String description) {
 		this.id = id;
-		Brand = brand;
+		this.Brand = brand;
 		this.nameOfProduct = nameOfProduct;
 		this.price = price;
 		this.group = group;
@@ -39,7 +37,7 @@ public class Product {
 		return Brand;
 	}
 	public void setBrand(String brand) {
-		Brand = brand;
+		this.Brand = brand;
 	}
 	public Long getId() {
 		return id;
