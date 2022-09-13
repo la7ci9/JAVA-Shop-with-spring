@@ -10,20 +10,27 @@ import javax.persistence.Table;
 @Table(name = "products")
 public class Product {
 	
+	enum Groups{
+		WRITING_INSTRUMENT,
+		BOOKS,
+		IT,
+		STATIONERY
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String Brand;
 	private String nameOfProduct;
 	private Double price;
-	private ProductGroup group;
+	private Groups group;
 	private String description; //amount in pack or something
 	
 	public Product(Long id, 
 			String brand, 
 			String nameOfProduct, 
 			Double price, 
-			ProductGroup group, 
+			Groups group, 
 			String description) {
 		this.id = id;
 		this.Brand = brand;
@@ -57,10 +64,10 @@ public class Product {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
-	public ProductGroup getGroup() {
+	public Groups getGroup() {
 		return group;
 	}
-	public void setGroup(ProductGroup group) {
+	public void setGroup(Groups group) {
 		this.group = group;
 	}
 	public String getDescription() {
