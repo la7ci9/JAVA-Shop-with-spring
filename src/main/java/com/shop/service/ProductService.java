@@ -2,11 +2,14 @@ package com.shop.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.shop.entity.Product;
 import com.shop.repositorys.ProductRepository;
 
 public class ProductService implements ProductServiceDAO{
 	
+	@Autowired
 	private ProductRepository productRepository;
 
 	public ProductService(ProductRepository productRepository) {
