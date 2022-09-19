@@ -6,11 +6,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name = "products")
 public class Product {
 	
-	enum Groups{
+	public enum Groups{
 		WRITING_INSTRUMENT,
 		BOOKS,
 		IT,
