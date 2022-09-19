@@ -3,7 +3,7 @@ package com.shop.service;
 import java.util.List;
 
 import com.shop.order.Order;
-import com.shop.serciveDAO.OrderServiceDAO;
+import com.shop.serviceDAO.OrderServiceDAO;
 import com.shop.shoppingcart.CartItem;
 
 public class OrderService implements OrderServiceDAO {

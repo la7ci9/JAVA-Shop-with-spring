@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.shop.entity.Product;
 import com.shop.repositorys.ProductRepository;
+import com.shop.serviceDAO.ProductServiceDAO;
 
 public class ProductService implements ProductServiceDAO{
 	
