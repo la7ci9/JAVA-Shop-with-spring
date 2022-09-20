@@ -1,7 +1,9 @@
 package com.shop.service;
 
 import java.util.List;
+import java.util.Optional;
 
+import com.shop.entity.Product;
 import com.shop.order.Order;
 import com.shop.repositorys.OrderRepository;
 import com.shop.repositorys.ProductRepository;
@@ -10,12 +12,12 @@ import com.shop.shoppingcart.CartItem;
 
 public class OrderService implements OrderServiceDAO {
 	
-	OrderRepository orderRepository;
-	ProductRepository proudctRepository;
+	private OrderRepository orderRepository;
+	private ProductRepository productRepository;
 	
-	public OrderService(OrderRepository orderRepository, ProductRepository proudctRepository) {
+	public OrderService(OrderRepository orderRepository, ProductRepository productRepository) {
 		this.orderRepository = orderRepository;
-		this.proudctRepository = proudctRepository;
+		this.productRepository = productRepository;
 	}
 
 	@Override
@@ -26,14 +28,17 @@ public class OrderService implements OrderServiceDAO {
 
 	@Override
 	public float getCartAmount(List<CartItem> shoppingCartList) {
-		// TODO Auto-generated method stub
+		for(CartItem cart : shoppingCartList) {
+			Long productId = cart.getId();
+			Optional<Product> product = productRepository.findById(productId) ;
+			
+		}
 		return 0;
 	}
 
 	@Override
 	public Order SaveOrder(Order order) {
-		// TODO Auto-generated method stub
-		return null;
+		return orderRepository.save(order);
 	}
 
 }
