@@ -11,33 +11,23 @@ import javax.persistence.Table;
 @Table(name = "products")
 public class Product {
 	
-	public enum Groups{
-		WRITING_INSTRUMENT,
-		BOOKS,
-		IT,
-		STATIONERY
-	}
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String Brand;
 	private String nameOfProduct;
 	private Double price;
-	private Groups group;
 	private String description; //amount in pack or something
 	
 	public Product(Long id, 
 			String brand, 
 			String nameOfProduct, 
-			Double price, 
-			Groups group, 
+			Double price,  
 			String description) {
 		this.id = id;
 		this.Brand = brand;
 		this.nameOfProduct = nameOfProduct;
 		this.price = price;
-		this.group = group;
 		this.description = description;
 	}
 	
@@ -64,12 +54,6 @@ public class Product {
 	}
 	public void setPrice(Double price) {
 		this.price = price;
-	}
-	public Groups getGroup() {
-		return group;
-	}
-	public void setGroup(Groups group) {
-		this.group = group;
 	}
 	public String getDescription() {
 		return description;
