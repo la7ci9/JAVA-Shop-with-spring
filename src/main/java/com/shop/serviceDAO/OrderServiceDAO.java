@@ -9,7 +9,7 @@ public interface OrderServiceDAO {
 
 	Order getOrderDetail(Long orderId);
 	
-	float getCartAmount(List<CartItem> shoppingCartList);
+	double getCartAmount(List<CartItem> shoppingCartList);
 	
 	Order SaveOrder(Order order);
 }
