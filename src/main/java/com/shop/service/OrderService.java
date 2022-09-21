@@ -3,6 +3,9 @@ package com.shop.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.shop.entity.Product;
 import com.shop.order.Order;
 import com.shop.repositorys.OrderRepository;
@@ -10,6 +13,7 @@ import com.shop.repositorys.ProductRepository;
 import com.shop.serviceDAO.OrderServiceDAO;
 import com.shop.shoppingcart.CartItem;
 
+@Service
 public class OrderService implements OrderServiceDAO {
 	
 	private OrderRepository orderRepository;
@@ -22,8 +26,8 @@ public class OrderService implements OrderServiceDAO {
 
 	@Override
 	public Order getOrderDetail(Long orderId) {
-		
-		return null;
+		Optional<Order> order = orderRepository.findById(orderId);
+		return order.isPresent()? order.get() : null;
 	}
 
 	@Override
