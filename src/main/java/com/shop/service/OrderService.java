@@ -22,18 +22,25 @@ public class OrderService implements OrderServiceDAO {
 
 	@Override
 	public Order getOrderDetail(Long orderId) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	@Override
-	public float getCartAmount(List<CartItem> shoppingCartList) {
+	public double getCartAmount(List<CartItem> shoppingCartList) {
+		double totalCartAmount= 0f;
+		double singleCartAmount = 0f;
+		
 		for(CartItem cart : shoppingCartList) {
 			Long productId = cart.getId();
 			Optional<Product> product = productRepository.findById(productId) ;
-			
+			if(product.isPresent()) {
+				Product existProdcut = product.get();
+				singleCartAmount = existProdcut.getPrice() * cart.getQuantity();
+				totalCartAmount += singleCartAmount;
+			}
 		}
-		return 0;
+		return totalCartAmount;
 	}
 
 	@Override
