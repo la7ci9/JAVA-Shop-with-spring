@@ -3,6 +3,8 @@ package com.shop.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.shop.entity.Product;
@@ -29,4 +31,8 @@ public class ShoppingCartRESTController {
 		return productService.getAllProduct();
 	}
 
+	@PostMapping("/saveProduct")
+	Product newProduct(@RequestBody Product product) {
+		return productService.saveProduct(product);
+	}
 }
