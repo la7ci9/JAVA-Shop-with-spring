@@ -49,11 +49,21 @@ public class ShoppingCartRESTController {
 	//end of request for customers
 	
 	//request for order
-	@GetMapping("getOrder/{orderId}")
+	@GetMapping("/getOrder/{orderId}")
 	ResponseEntity<Order> getOrder(@PathVariable Long orderId){
 		Order order = orderService.getOrderDetail(orderId);
 		return ResponseEntity.ok(order);
 	}
 	
+	@GetMapping("/getOrderPrice/{orderId}")
+	Double getOrderPrice(@PathVariable Long orderId){
+		Order order = orderService.getOrderDetail(orderId);
+		return orderService.getCartAmount(order.getOrderCartItems());
+	}
+	
+	@GetMapping("/saveOrder")
+	Order saveOrder(@RequestBody Order order) {
+		return orderService.SaveOrder(order);
+	}
 	//end of request for order
 }
